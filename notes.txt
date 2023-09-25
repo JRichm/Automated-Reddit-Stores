@@ -1,0 +1,10 @@
+automatically create youtube shorts/tiktok videos from reddit posts
+
+
+1) get top submissions from specific subreddits using PRAW
+2) get content from submissions
+3) get screenshots of post using url from saved submission and selenium
+4) turn text from submission into audio using pyttsx3
+5) add audio to screenshot to create and save video clip using moviepy
+6) concatenate title and comment video clips to create composite clip
+7) export final video

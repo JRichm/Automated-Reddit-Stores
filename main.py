@@ -8,6 +8,7 @@ from moviepy.editor import *
 
 voiceoverDirectory = "Voiceovers"
 screenshotDir = "Screenshots"
+backgroundDirectory = "BackgroundVideos"
 
 driver = webdriver.Firefox()
 driver.get(submission.url)
@@ -85,4 +86,23 @@ def generateClips():
         videoClip = createClip(comment.screenshot, comment.voiceover)
         clips.append(videoClip)
 
-    titleAndCommentsClip = concatenate_videoClips(clips)
+    titleAndCommentsClip = concatenate_videoclips(clips)
+
+    backgroundVideoIndex = random.randint(0, videoCount-1)
+    backgroundVideoName = f"{backgroundDirectory}/{backgroundVideoIndex}.mp4"
+
+    backgroundVideo = VideoFileClip(fileName="backgroundVideoName")
+
+class VideoFileClip():
+    pass
+
+class CompositeVideoClip(clips):
+    pass
+
+outputFile = f"{script.title}.mp4"
+finalVideo.write_videofile(
+    outputFile,
+    codec = "mpeg4",
+    threads = 12,
+    bitrate = "8000k"
+)
