@@ -1,6 +1,8 @@
 import os
 import praw
 
+from post import Post
+
 # connect praw
 reddit = praw.Reddit(
     client_id="6BTa-Zg0LzSof23gsNnmCw",
@@ -22,5 +24,4 @@ print(type(entered_subreddit))
 submissions = reddit.subreddit(entered_subreddit).top(time_filter="day", limit=3)
 
 for submission in submissions:
-    print("\n" + submission.title)
-    print(submission.selftext + "\n")
+    post = Post(submission)

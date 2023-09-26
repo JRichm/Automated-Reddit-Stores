@@ -6,7 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from moviepy.editor import *
 
 
-voiceoverDirectory = "Voiceovers"
 screenshotDir = "Screenshots"
 backgroundDirectory = "BackgroundVideos"
 
@@ -27,22 +26,22 @@ for submission in submissions:
     if (submission.id in existingPostIds or submission.over_18):
         continue
 
-def getContentFromPost(submission):
-    for comment in submission.comments:
-        if (len(comment.body.split()) > 100):
-            continue
-        addComment(comment)
+# def getContentFromPost(submission):
+#     for comment in submission.comments:
+#         if (len(comment.body.split()) > 100):
+#             continue
+#         addComment(comment)
 
-def addComment(comment):
-    id = comment.id
-    text = comment.body
+# def addComment(comment):
+#     id = comment.id
+#     text = comment.body
 
-def createVoiceOver(id, text):
-    engine = pyttsx3.init()
-    filePath = f"{voiceoverDirectory}/comment-{id}.mp3"
-    engine.save_to_file(text, filePath)
-    engine.runAndWait()
-    return filePath
+# def createVoiceOver(id, text):
+#     engine = pyttsx3.init()
+#     filePath = f"{voiceoverDirectory}/comment-{id}.mp3"
+#     engine.save_to_file(text, filePath)
+#     engine.runAndWait()
+#     return filePath
 
 def takeTitleScreenshot(driver, wait):
     handle = By.CLASS_NAME
